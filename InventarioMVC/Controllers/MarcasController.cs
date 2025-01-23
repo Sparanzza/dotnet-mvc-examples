@@ -42,6 +42,7 @@ namespace InventarioMVC.Controllers
             
             viewModel.Total = await consulta.CountAsync();
             viewModel.Marcas = consulta.ToPagedList(numeroDePagina, registrosPorPagina);
+            viewModel.TituloCrear = "Crear Marca";
 
             return View(viewModel);
         }

@@ -6,13 +6,14 @@
   ViewData["Title"] = "Marcas";
 }
 
-@await Html.PartialAsync("Actions/_CrearBusqueda", new CrearBusquedaViewModel
-{
-  TituloCrear = "Crear Marca",
-  FiltroBusqueda = Model.FiltroBusqueda,
-  Total = Model.Total
-})
+@* @await Html.PartialAsync("Actions/_CrearBusqueda", new CrearBusquedaViewModel *@
+@* { *@
+@*   TituloCrear = "Crear Marca", *@
+@*   FiltroBusqueda = Model.FiltroBusqueda, *@
+@*   Total = Model.Total *@
+@* }) *@
 
+<partial name="Actions/_CrearBusqueda" model="Model.CrearBusquedaViewModel()"/>
 <table class="table table-hover table-bordered table-striped">
   <thead class="bg-primary text-white">
     <tr>
