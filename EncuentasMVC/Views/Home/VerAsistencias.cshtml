@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Encuesta>
+@{}
+
+<h3>Listado de Asistentes</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Asistencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var encuesta in Model)
+        {
+            <tr>
+                <td>@encuesta.Nombre</td>
+                <td>@encuesta.Email</td>
+                <td>@(encuesta.Asistencia ? "Si" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>

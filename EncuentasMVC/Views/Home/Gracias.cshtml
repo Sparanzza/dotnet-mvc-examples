@@ -1,0 +1,14 @@
+﻿@model Encuesta
+<h2>Gracias @Model.Nombre</h2>
+
+@if (Model.Asistencia == true)
+{
+    @:Gracias por la confirmacion de tu asistencia, aprenderemos mucho :).
+<p>
+    <a asp-action="VerAsistencias">Ver asistencias</a>
+</p>
+}
+else
+{
+    @:Gracias por tu tiempo, esperamos verte en otra ocasion.
+}
