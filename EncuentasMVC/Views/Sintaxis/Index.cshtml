@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Sintaxis Page";
+    var mensaje = "Hola Mundo desde MVC";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sintaxis</h1>
+    <p>@mensaje</p>
+</div>
+
+@{
+    var persona = new Persona();
+    persona.Nombre = "Juan";
+    persona.Id = 123;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Id persona @persona.Id</h1>
+    <p>Nombre persona @persona.Nombre</p>
+</div>
