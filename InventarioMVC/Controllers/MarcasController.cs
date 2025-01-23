@@ -22,12 +22,12 @@ namespace InventarioMVC.Controllers
         }
 
         // GET: Marcas
-        public async Task<IActionResult> Index(ListadoMarcasViewModel viewModel)
+        public async Task<IActionResult> Index(ListadoViewModel<Marca> viewModel)
         {
             var registrosPorPagina = _configuration.GetValue("RegistrosPorPagina", 10);
             
             // Si es primera carga (viewModel null) o navegación por paginación
-            viewModel ??= new ListadoMarcasViewModel 
+            viewModel ??= new ListadoViewModel<Marca> 
             { 
                 Pagina = 1  // Página por defecto si es primera carga
             };
@@ -41,7 +41,7 @@ namespace InventarioMVC.Controllers
             }
             
             viewModel.Total = await consulta.CountAsync();
-            viewModel.Marcas = consulta.ToPagedList(numeroDePagina, registrosPorPagina);
+            viewModel.Registros = consulta.ToPagedList(numeroDePagina, registrosPorPagina);
             viewModel.TituloCrear = "Crear Marca";
 
             return View(viewModel);

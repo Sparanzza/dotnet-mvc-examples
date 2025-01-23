@@ -1,6 +1,6 @@
 @using X.PagedList.Mvc.Core
 @using InventarioMVC.ViewModels
-@model ListadoMarcasViewModel
+@model ListadoViewModel<Marca>
 
 @{
   ViewData["Title"] = "Marcas";
@@ -18,13 +18,13 @@
   <thead class="bg-primary text-white">
     <tr>
       <th>
-        @Html.DisplayNameFor(model => model.Marcas[0].Nombre)
+        @Html.DisplayNameFor(model => model.Registros[0].Nombre)
       </th>
       <th class="text-center">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    @foreach (var item in Model.Marcas)
+    @foreach (var item in Model.Registros)
     {
       <tr>
         <td>
@@ -38,6 +38,6 @@
   </tbody>
 </table>
 
-@Html.PagedListPager(Model.Marcas,
+@Html.PagedListPager(Model.Registros,
   page => Url.Action("Index", new { Pagina = page, FiltroBusqueda = Model.FiltroBusqueda }),
   new PagedListRenderOptions() { LiElementClasses = ["page-item"], PageClasses = ["page-link"] })
