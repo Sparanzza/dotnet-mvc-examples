@@ -1,4 +1,5 @@
 namespace InventarioMVC.Models;
+
 public class Departamento
 {
     public int Id { get; set; }

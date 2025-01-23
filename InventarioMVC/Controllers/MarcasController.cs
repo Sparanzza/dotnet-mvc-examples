@@ -1,9 +1,9 @@
 using AspNetCoreHero.ToastNotification.Abstractions;
+using InventarioMVC.Models;
+using InventarioMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using InventarioMVC.Models;
 using MVCInventarios.Data;
-using InventarioMVC.ViewModels;
 using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers
@@ -25,21 +25,21 @@ namespace InventarioMVC.Controllers
         public async Task<IActionResult> Index(ListadoViewModel<Marca> viewModel)
         {
             var registrosPorPagina = _configuration.GetValue("RegistrosPorPagina", 10);
-            
+
             // Si es primera carga (viewModel null) o navegación por paginación
-            viewModel ??= new ListadoViewModel<Marca> 
-            { 
-                Pagina = 1  // Página por defecto si es primera carga
+            viewModel ??= new ListadoViewModel<Marca>
+            {
+                Pagina = 1
             };
 
             // Asegurar página válida
             var numeroDePagina = Math.Max(viewModel.Pagina, 1);
             var consulta = _context.Marcas.OrderBy(m => m.Nombre).AsQueryable();
-            if(!string.IsNullOrWhiteSpace(viewModel.FiltroBusqueda))
+            if (!string.IsNullOrWhiteSpace(viewModel.FiltroBusqueda))
             {
-                consulta = consulta.Where(m => m.Nombre.Contains(viewModel.FiltroBusqueda)); 
+                consulta = consulta.Where(m => m.Nombre.Contains(viewModel.FiltroBusqueda));
             }
-            
+
             viewModel.Total = await consulta.CountAsync();
             viewModel.Registros = consulta.ToPagedList(numeroDePagina, registrosPorPagina);
             viewModel.TituloCrear = "Crear Marca";

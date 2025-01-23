@@ -1,4 +1,5 @@
 namespace InventarioMVC.Models;
+
 public class Producto
 {
     public int Id { get; set; }
@@ -7,5 +8,4 @@ public class Producto
     public int MarcaId { get; set; }
     public Marca? Marca { get; set; }
     public decimal Costo { get; set; }
-
 }
