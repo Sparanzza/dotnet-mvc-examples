@@ -25,21 +25,21 @@ namespace InventarioMVC.Controllers
         public async Task<IActionResult> Index(ListadoMarcasViewModel viewModel)
         {
             var registrosPorPagina = _configuration.GetValue("RegistrosPorPagina", 10);
-
+            
             // Si es primera carga (viewModel null) o navegación por paginación
-            viewModel ??= new ListadoMarcasViewModel
-            {
-                Pagina = 1 // Página por defecto si es primera carga
+            viewModel ??= new ListadoMarcasViewModel 
+            { 
+                Pagina = 1  // Página por defecto si es primera carga
             };
 
             // Asegurar página válida
             var numeroDePagina = Math.Max(viewModel.Pagina, 1);
             var consulta = _context.Marcas.OrderBy(m => m.Nombre).AsQueryable();
-            if (!string.IsNullOrWhiteSpace(viewModel.FiltroBusqueda))
+            if(!string.IsNullOrWhiteSpace(viewModel.FiltroBusqueda))
             {
-                consulta = consulta.Where(m => m.Nombre.Contains(viewModel.FiltroBusqueda));
+                consulta = consulta.Where(m => m.Nombre.Contains(viewModel.FiltroBusqueda)); 
             }
-
+            
             viewModel.Total = await consulta.CountAsync();
             viewModel.Marcas = consulta.ToPagedList(numeroDePagina, registrosPorPagina);
 
