@@ -1,5 +1,4 @@
-﻿using InventarioMVC.Models;
-using System.Linq;
+﻿﻿using InventarioMVC.Models;
 
 namespace MVCInventarios.Data;
 public static class DbInitializer
@@ -35,11 +34,31 @@ public static class DbInitializer
         context.SaveChanges();
 
         var departamentos = new Departamento[]{
-            new Departamento{Nombre="Administración General"},
-            new Departamento{Nombre ="Recursos Humanos"},
-            new Departamento{Nombre="Recursos Materiales"},
-            new Departamento{Nombre="Informática"},
-            new Departamento{Nombre="Dirección General"}
+            new Departamento{
+                Nombre="Administración General",
+                Descripcion="Administración General",
+                FechaCreacion=DateTime.Now,
+            },
+            new Departamento{
+                Nombre ="Recursos Humanos",
+                Descripcion="Recursos Humanos",
+                FechaCreacion=DateTime.Now
+            },
+            new Departamento{
+                Nombre="Recursos Materiales",
+                Descripcion="Recursos Materiales",
+                FechaCreacion=DateTime.Now
+            },
+            new Departamento{
+                Nombre="Informática",
+                Descripcion="Informática",
+                FechaCreacion=DateTime.Now
+            },
+            new Departamento{
+                Nombre="Dirección General",
+                Descripcion="Dirección General",
+                FechaCreacion=DateTime.Now
+            }
         };
 
         context.Departamentos.AddRange(departamentos);
