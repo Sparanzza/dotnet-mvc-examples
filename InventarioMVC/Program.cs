@@ -1,4 +1,5 @@
 using AspNetCoreHero.ToastNotification;
+using InventarioMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using MVCInventarios.Data;
 

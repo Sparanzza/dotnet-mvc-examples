@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using InventarioMVC.ViewModels;
 
 namespace InventarioMVC.Models;
 

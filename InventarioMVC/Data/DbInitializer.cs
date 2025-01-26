@@ -1,6 +1,7 @@
-﻿﻿using InventarioMVC.Models;
+﻿using InventarioMVC.Models;
+using MVCInventarios.Data;
 
-namespace MVCInventarios.Data;
+namespace InventarioMVC.Data;
 public static class DbInitializer
 {
     public static void Initialize(InventariosContext context)
