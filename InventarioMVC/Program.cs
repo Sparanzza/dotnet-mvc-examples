@@ -39,7 +39,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<InventariosContext>();
-    await context.Database.EnsureCreatedAsync();
+    // await context.Database.EnsureCreatedAsync();
     DbInitializer.Initialize(context);
 }
 
