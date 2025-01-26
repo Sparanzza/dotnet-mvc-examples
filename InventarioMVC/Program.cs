@@ -1,5 +1,8 @@
 using AspNetCoreHero.ToastNotification;
 using InventarioMVC.Data;
+using InventarioMVC.Helpers;
+using InventarioMVC.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVCInventarios.Data;
 
@@ -19,6 +22,9 @@ builder.Services.AddNotyf(config =>
 });
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddSingleton<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
+builder.Services.AddSingleton<UsuarioFactoria>();
 
 var app = builder.Build();
 
