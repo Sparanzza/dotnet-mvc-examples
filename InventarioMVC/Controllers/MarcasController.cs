@@ -2,12 +2,14 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using InventarioMVC.Data;
 using InventarioMVC.Models;
 using InventarioMVC.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers
 {
+    [Authorize]
     public class MarcasController : Controller
     {
         private readonly InventariosContext _context;

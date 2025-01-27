@@ -2,6 +2,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using InventarioMVC.Data;
 using InventarioMVC.Models;
 using InventarioMVC.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         private readonly InventariosContext _context;
