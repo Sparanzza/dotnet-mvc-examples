@@ -1,10 +1,9 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using InventarioMVC.Data;
 using InventarioMVC.Models;
 using InventarioMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MVCInventarios.Data;
-using X.PagedList.EntityFramework;
 using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers;
@@ -43,7 +42,7 @@ public class PerfilesController : Controller
         viewModel.TituloCrear = "Crear Perfil";
         viewModel.Total = consulta.Count();
         var numeroPagina = viewModel?.Pagina ?? 1;
-        
+
         if (numeroPagina < 1)
         {
             numeroPagina = 1;

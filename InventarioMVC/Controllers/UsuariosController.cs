@@ -5,9 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InventarioMVC.Helpers;
-using MVCInventarios.Data;
-using X.PagedList.EntityFramework;
 using X.PagedList.Extensions;
+using InventarioMVC.Data;
 
 namespace InventarioMVC.Controllers;
 

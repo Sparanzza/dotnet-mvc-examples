@@ -1,10 +1,10 @@
 using AspNetCoreHero.ToastNotification.Abstractions;
+using InventarioMVC.Data;
 using InventarioMVC.Models;
 using InventarioMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MVCInventarios.Data;
 using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers

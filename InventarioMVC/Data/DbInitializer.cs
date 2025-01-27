@@ -1,5 +1,4 @@
 ﻿using InventarioMVC.Models;
-using MVCInventarios.Data;
 
 namespace InventarioMVC.Data;
 public static class DbInitializer

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using InventarioMVC.Models;
 
 // dotnet aspnet-codegenerator controller -name MarcasController -m Marca -dc MVCInventarios.Data.InventariosContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
-namespace MVCInventarios.Data
+namespace InventarioMVC.Data
 {
     public class InventariosContext : DbContext
     {

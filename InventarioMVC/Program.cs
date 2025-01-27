@@ -2,14 +2,26 @@ using AspNetCoreHero.ToastNotification;
 using InventarioMVC.Data;
 using InventarioMVC.Helpers;
 using InventarioMVC.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MVCInventarios.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<InventariosContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InventariosContext") ??
                          throw new InvalidOperationException("Connection string 'InventariosContext' not found.")));
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options=> {
+        options.Cookie.Name = "InventariosCookie";
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+        options.SlidingExpiration = true;
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/AccessDenied";
+        options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -52,6 +64,7 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
