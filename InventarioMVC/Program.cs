@@ -19,9 +19,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
         options.SlidingExpiration = true;
         options.LoginPath = "/Account/Login";
-        options.AccessDeniedPath = "/AccessDenied";
+        options.AccessDeniedPath = "/AccesoDenegado";
         options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
     });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Administradores", policy => policy.RequireRole("administrador"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

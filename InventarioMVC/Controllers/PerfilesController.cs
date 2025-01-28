@@ -8,9 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using X.PagedList.Extensions;
 
 namespace InventarioMVC.Controllers;
-//[Authorize(Roles = "Administrador")]
+[Authorize(Roles = "administrador")]
 //[Authorize(Policy = "Administradores")]
-[Authorize]
 public class PerfilesController : Controller
 {
 

@@ -7,10 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using InventarioMVC.Helpers;
 using X.PagedList.Extensions;
 using InventarioMVC.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InventarioMVC.Controllers;
 
-//[Authorize(Roles = "Administrador")]
+[Authorize(Roles = "administrador")]
 //[Authorize(Policy = "Administradores")]
 public class UsuariosController : Controller
 {
